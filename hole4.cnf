@@ -2,7 +2,7 @@ c Generated problem: placing 5 pigeons into 4 holes
 c 
 c Number of propositional variables: 20
 c Number of clauses: 45
-c cnf 20 45
+p cnf 20 45
 -1 -5 0
 -1 -9 0
 -1 -13 0
