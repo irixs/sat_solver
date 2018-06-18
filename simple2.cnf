@@ -1,0 +1,17 @@
+c simple test # 1
+c
+c unsatisfiable set of clauses (3SAT)
+c
+p cnf 4 11
+-1 2 4 0
+-2 3 4 0
+1 -3 -4 0
+1 3 4 0
+-2 -3 -4 0
+-2 -3 4 0
+1 3 -4 0
+-1 2 -4 0
+-1 -2 -4 0
+-2 3 -4 0
+2 -3 4 0
+
