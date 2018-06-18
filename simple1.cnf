@@ -1,0 +1,16 @@
+c simple test # 1
+c
+c satisfiable set of clauses (3SAT)
+c
+p cnf 4 10
+-2 3 4 0
+1 -3 -4 0
+1 3 4 0
+-2 -3 -4 0
+-2 -3 4 0
+1 3 -4 0
+-1 2 -4 0
+-1 -2 -4 0
+-2 3 -4 0
+2 -3 4 0
+
