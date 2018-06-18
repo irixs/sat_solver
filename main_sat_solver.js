@@ -1,2 +1,2 @@
-const sat = require('./sat_solver.js');
+let sat = require('./sat_solver.js');
 console.log(sat.solve(fileName));

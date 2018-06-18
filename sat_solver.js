@@ -14,15 +14,15 @@ let cont = 9; // contador do specOk.
 //---------------- Gerar Nova Atribuição de Valores -----------------
 function nextAssignment(currentAssignment) {
     for (x = 0; x < currentAssignment.length; x++) {
-        if (currentAssignment[x] === 1) { // se a váriável vale 1, substitui por 0, e retorna o novo array.
+        if (currentAssignment[x] === 1) { // se a variavel vale 1, substitui por 0, e retorna o novo array.
             currentAssignment[x] = 0;
             x = currentAssignment.length;
         }
         else {
-            if (x === currentAssignment.length - 1) { // se chega a ultima variável do problema, 
+            if (x === currentAssignment.length - 1) { // se chega a ultima variavel do problema,
                 isLast = true;						  // significa que é a ultima combinação possível, e isLast é true.
             }
-            currentAssignment[x] = 1; // atribui 1 à variável quando ela vale 0.
+            currentAssignment[x] = 1; // atribui 1 à variavel quando ela vale 0.
         }
     }
     return currentAssignment;
@@ -50,8 +50,8 @@ function doSolve(clauses, assignment) {
                     allClauses = false;						     // satisfatível, e precisa de nova combinação de valores.
                 }
             }
-            if (t === clauses.length - 1) { // se chegou a ultima linha de clausula, o valor do allClauses
-                isSat = allClauses;			// (satisfatível ou não) é repassado para o isSat.
+            if (t === clauses.length - 1 && allClauses) { // se chegou a ultima linha de clausula e allClauses
+                isSat = allClauses;			              // é true, seu valor é repassado para o isSat.
             }
         }
         if (!isLast && !isSat) { // se não isSat e ainda não é a ultima combinação possível, vai gerar um novo assignment.
