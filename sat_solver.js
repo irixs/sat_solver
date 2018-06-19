@@ -31,14 +31,14 @@ function nextAssignment(currentAssignment) {
 function doSolve(clauses, assignment) {
     let isSat = false;
     while ((!isSat)) {
-        let allClauses = true;
+        let allClauses = true; // booleano que indica se todas as linhas de clausula são true ou false. (quando uma das linhas dá false allClauses é false e pede novo assignment)
         for ( t = 0; t < clauses.length && allClauses; t++) {
-            let clauseLine = true;
+            let clauseLine = true; // booleano que indica se a linha é verdadeira. (quando uma variavel fica verdadeira o boleano fica false e ele n checa mais aquela linha)
             for ( j = 0; j < clauses[t].length && clauseLine; j++) { // analisa cada linha de clausulas.
                 if (clauses[t][j] <= 0) { // para variaveis negadas.
                     if (!assignment[Math.abs(clauses[t][j]) - 1]) { // se a variavel (já com a negação) é true a clausula já está correta
                         clauseLine = false;                         // e o programa sai do for e entra na proxima linha de clausulas.
-                    }
+                    } // se o elemento da clausula é true, ele nao precisa ler o restante da cláusula, e sai do for
                 }
                 else { // variavel sem negação.
                     if (assignment[Math.abs(clauses[t][j]) - 1]) { // se true vai pra proxima linha de clausula.
@@ -51,10 +51,11 @@ function doSolve(clauses, assignment) {
                 }
             }
             if (t === clauses.length - 1 && allClauses) { // se chegou a ultima linha de clausula e allClauses
-                isSat = allClauses;			              // é true, seu valor é repassado para o isSat.
+                isSat = true;			              // é true, seu valor é repassado para o isSat.
             }
         }
         if (!isLast && !isSat) { // se não isSat e ainda não é a ultima combinação possível, vai gerar um novo assignment.
+            console.log(assignment);
             assignment = nextAssignment(assignment);
         }
         else { 
@@ -71,16 +72,22 @@ function doSolve(clauses, assignment) {
 function readFormula(fileName) {
     var fs = require('fs');
     var file = fs.readFileSync(fileName).toString();
-    let text = file.split('\r\n');
-    let clauses = readClauses(text);
-    let variables = readVariables(clauses);
+    console.log(file);
+    let text = file.split('\r\n'); // text é um array
+    console.log(text);
+    let clauses = readClauses(text); // retorna um array bidimensional com as cláusulas
+    console.log(clauses);
+    let variables = readVariables(clauses); // 
+    console.log(variables);
     let specOk = checkProblemSpecification(text, clauses, variables);
+    console.log(specOk);
     let result = { 'clauses': [], 'variables': [] };
     if (specOk) {
         result.clauses = clauses;
         result.variables = variables;
         cont = 10;
     }
+    console.log(result);
     return result;
 }
 //--------------------- Criar Array de Clausulas --------------------
