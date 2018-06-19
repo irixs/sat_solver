@@ -1,2 +1,2 @@
 # SAT solver
-Repositório do projeto de conclusão da disciplina de Introdução a Computação, que consiste em um SAT solver que funciona à força bruta.
+Foram adicionados mais comentários que facilitam o entendimento, e prints durante a execução do programa para visualizar o funcionamento do mesmo.
