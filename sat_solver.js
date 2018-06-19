@@ -1,4 +1,4 @@
-exports.solve = function(fileName) {
+exports.solver = function(fileName) {
     let formula = readFormula(fileName);
     if (cont === 10) {
         let result = doSolve(formula.clauses, formula.variables);
